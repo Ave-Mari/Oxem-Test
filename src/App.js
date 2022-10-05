@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { hot } from 'react-hot-loader/root';
 import Input from "./components/Input";
-import './styles.css'
+import './main.css'
 
 
 export default function App() {
@@ -29,7 +29,8 @@ useEffect(() => {
 
   return (
     <>
-    <section>
+    <section className="main-section">
+      <h1>Рассчитайте стоиомсть автомобиля в лизинг</h1>
     <Input
     placeholder={numberWithSpaces(price)}
     inputTextChange={e => setPrice(e.target.value)}
