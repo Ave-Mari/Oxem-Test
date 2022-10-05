@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { hot } from 'react-hot-loader/root';
-// import Price from "./components/Price";
-// import Fee from "./components/Fee";
+import Input from "./components/Input";
 import './styles.css'
-
 
 
 export default function App() {
@@ -15,8 +13,8 @@ export default function App() {
 
   const [monthPay, setMonthPay] = useState(1);
   
-  function numberWithSpaces(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  function numberWithSpaces(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
 useEffect(() => {
@@ -26,37 +24,49 @@ useEffect(() => {
 
 useEffect(() => {
   setMonthPay(Math.round((price - initial) * ((0.035 * Math.pow((1 + 0.035), months)) / (Math.pow((1 + 0.035), months) - 1))));
-}, [initial, percent, months])
+}, [initial, percent, months]);
 
 
-console.log('month pay: ', (price - initial) * ((0.035 * Math.pow((1 + 0.035), months)) / (Math.pow((1 + 0.035), months) - 1)))
   return (
     <>
-   <p>Стоимость автомобиля</p>
-   <div className="input-block"> 
-   <input type="text" placeholder={price} onChange={e => setPrice(e.target.value)}/>
-    <input type="range" className="input-range" value={price} min="1000000" max="6000000" onChange={(e) => setPrice(e.target.value)}/>
-    <p className="input-percent">₽</p>
-   </div>
-    
-    <p>Первоначальный взнос</p>
-    <div className="input-block"> 
-    <input type="text"  placeholder={initial} value={initial} onChange={e => setInitial(e.target.value)}/>    
-    <input className="input-range" type="range" value={percent} min="10" max="60" onChange={e => setPercent(e.target.value)}/>
-    <p className="input-percent">{percent}%</p>
-    </div>
-    <div className="input-block">
-    <p>Срок лизинга</p>
-    <input type="text" placeholder={months} />
-    <input type="range" className="input-range" value={months} min="1" max="60" onChange={(e) => setMonths(e.target.value)}/> 
-    <p className="input-percent">мес.</p>
-    </div>
+    <Input
+    placeholder={numberWithSpaces(price)}
+    inputTextChange={e => setPrice(e.target.value)}
+    inputRangeChange={e => setPrice(e.target.value)}
+    value={price}
+    min={1000000}
+    max={6000000}
+    inputTitle={'Стоимость автомобиля'}
+    inputUnit={'₽'}
+     />
 
+<Input
+    placeholder={numberWithSpaces(initial)}
+    inputTextChange={e => setInitial(e.target.value)}
+    inputRangeChange={e => setPercent(e.target.value)}
+    value={percent}
+    min={10}
+    max={60}
+    inputTitle={'Первоначальный взнос'}
+    inputUnit={percent + '%'}
+     />
+
+<Input
+    placeholder={months}
+    inputRangeChange={(e) => setMonths(e.target.value)}
+    inputTextChange={(e) => setMonths(e.target.value)}
+    value={months}
+    min={1}
+    max={60}
+    inputTitle={'Срок лизинга'}
+    inputUnit={'мес.'}
+     />
+  
     <div>
-      <p>Сумма договора лизинга {initial + months * monthPay} </p>
+      <p>Сумма договора лизинга {numberWithSpaces(initial + months * monthPay)} </p>
     </div>
     <div>
-      <p>Ежемесячный платёж от {monthPay} ₽</p>
+      <p>Ежемесячный платёж от {numberWithSpaces(monthPay)} ₽</p>
     </div>
    
     </>
