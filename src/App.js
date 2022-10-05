@@ -29,6 +29,7 @@ useEffect(() => {
 
   return (
     <>
+    <section>
     <Input
     placeholder={numberWithSpaces(price)}
     inputTextChange={e => setPrice(e.target.value)}
@@ -68,7 +69,7 @@ useEffect(() => {
     <div>
       <p>Ежемесячный платёж от {numberWithSpaces(monthPay)} ₽</p>
     </div>
-   
+    </section>
     </>
   )
 }
