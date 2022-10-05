@@ -11,7 +11,7 @@ export default function App() {
   const [price, setPrice] = useState(3300000); 
   const [initial, setInitial] = useState(420000);  
   const [percent, setPercent] = useState(Math.round((initial / price) * 100));
-  const [months, setMonths] = useState(6);
+  const [months, setMonths] = useState(60);
 
   const [monthPay, setMonthPay] = useState(1);
   
@@ -28,6 +28,8 @@ useEffect(() => {
   setMonthPay(Math.round((price - initial) * ((0.035 * Math.pow((1 + 0.035), months)) / (Math.pow((1 + 0.035), months) - 1))));
 }, [initial, percent, months])
 
+
+console.log('month pay: ', (price - initial) * ((0.035 * Math.pow((1 + 0.035), months)) / (Math.pow((1 + 0.035), months) - 1)))
   return (
     <>
    <p>Стоимость автомобиля</p>
@@ -46,7 +48,7 @@ useEffect(() => {
     <div className="input-block">
     <p>Срок лизинга</p>
     <input type="text" placeholder={months} />
-    <input type="range" className="input-range" value={months} min="1" max="6" onChange={(e) => setMonths(e.target.value)}/> 
+    <input type="range" className="input-range" value={months} min="1" max="60" onChange={(e) => setMonths(e.target.value)}/> 
     <p className="input-percent">мес.</p>
     </div>
 
