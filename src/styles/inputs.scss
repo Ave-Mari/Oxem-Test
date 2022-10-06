@@ -1,7 +1,10 @@
-.input-block {
-  background-color: #F3F3F4;
+.block {
   position: relative;
-  width: 25%;
+  width: 427px;
+}
+
+.input-wrapper {
+    background-color: #F3F3F4;
 }
 
 .input-percent {
@@ -10,6 +13,40 @@
   top: 0;
   margin: 0;
 }
+
+.blocks-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+}
+
+.block {
+    font: 5px;
+}
+
+.text-input {
+    border: none;
+    background: #F3F3F4;
+  }
+  
+
+
+
+.btn-submit {
+    font-weight: 900;
+    font-size: 30px;
+    display: flex;
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 92px 18px 92px;
+    background: #FF9514;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+
 
 .input-range::-moz-range-thumb {
   -webkit-appearance: none;
