@@ -1,4 +1,29 @@
 @import './styles/inputs.scss';
+@import url("./fonts/Nekst-Black/stylesheet.css");
+@import url("./fonts/Gilroy-Black/stylesheet.css");
 
+body {
+  font-family: 'Nekst Semi';
+}
+
+.gilroy-font {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #575757;
+}
+
+.main-section {
+  width: 94%;
+  margin: 0 auto;
+}
+
+.section-headline {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 54px;
+  width: 53%;
+}
 
 
