@@ -30,8 +30,9 @@ useEffect(() => {
   return (
     <>
     <section className="main-section">
-      <h1>Рассчитайте стоиомсть автомобиля в лизинг</h1>
-    <Input
+      <h1 className="section-headline">Рассчитайте стоимость автомобиля в лизинг</h1>
+      <div className="blocks-wrapper">
+      <Input
     placeholder={numberWithSpaces(price)}
     inputTextChange={e => setPrice(e.target.value)}
     inputRangeChange={e => setPrice(e.target.value)}
@@ -64,12 +65,19 @@ useEffect(() => {
     inputUnit={'мес.'}
      />
   
-    <div>
-      <p>Сумма договора лизинга {numberWithSpaces(initial + months * monthPay)} </p>
+    <div className="block">
+      <p className="gilroy-font">Сумма договора лизинга {numberWithSpaces(initial + months * monthPay)} </p>
     </div>
-    <div>
-      <p>Ежемесячный платёж от {numberWithSpaces(monthPay)} ₽</p>
+    <div className="block">
+      <p className="gilroy-font">Ежемесячный платёж от {numberWithSpaces(monthPay)} ₽</p>
     </div>
+    <div className="block">
+     <button type="submit" className="btn-submit">Оставить заявку</button>
+    </div>
+
+
+      </div>
+   
     </section>
     </>
   )
