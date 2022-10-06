@@ -66,10 +66,12 @@ useEffect(() => {
      />
   
     <div className="block">
-      <p className="gilroy-font">Сумма договора лизинга {numberWithSpaces(initial + months * monthPay)} </p>
+      <p className="gilroy-font amount">Сумма договора лизинга</p>
+      <p className="amount-value">{numberWithSpaces(initial + months * monthPay)} ₽</p>
     </div>
     <div className="block">
-      <p className="gilroy-font">Ежемесячный платёж от {numberWithSpaces(monthPay)} ₽</p>
+      <p className="gilroy-font amount">Ежемесячный платёж от</p>
+      <p className="amount-value">{numberWithSpaces(monthPay)} ₽</p>
     </div>
     <div className="block">
      <button type="submit" className="btn-submit">Оставить заявку</button>
