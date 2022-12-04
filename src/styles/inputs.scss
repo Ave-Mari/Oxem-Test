@@ -27,7 +27,7 @@
 
 
 .input-unit {
-  //position: absolute;
+  position: absolute;
   right: 0;
   top: 0;
   margin: 0;
@@ -50,6 +50,7 @@ input::placeholder {
 }
 
 .num-wrapper {
+  position: relative;
   display: flex;
   justify-content: space-between;
 }
@@ -67,7 +68,23 @@ input::placeholder {
 .text-input {
     border: none;
     background: #F3F3F4;
+    &:focus {
+      outline: none;
+      border: none;
   }
+  }
+
+  
+.text-input[type="text"] {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    font-family: 'Nekst Semi';
+
+    //font-family: 'Nekst-Black';
+  
+ }
+ 
   
 .amount {
   margin: 0;
